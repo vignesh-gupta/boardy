@@ -5,8 +5,8 @@ const EmptySearch = () => {
     <div className="h-full flex flex-col items-center justify-center">
       <Image
         src="/empty-search.svg"
-        height={140}
-        width={140}
+        height={200}
+        width={200}
         alt="Empty board"
       />
       <h2 className="text-2xl mt-6 font-semibold ">
