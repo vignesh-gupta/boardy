@@ -48,6 +48,7 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
         <NewBoardButton orgId={orgId} />
         {data.map((board) => (
           <BoardCard
+            orgId={orgId}
             key={board._id}
             id={board._id}
             title={board.title}
@@ -55,7 +56,7 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
             authorId={board.authorId}
             authorName={board.authorName}
             creationTime={board._creationTime}
-            isFavorite={false}
+            isFavorite={board.isFavorite}
           />
         ))}
       </div>
