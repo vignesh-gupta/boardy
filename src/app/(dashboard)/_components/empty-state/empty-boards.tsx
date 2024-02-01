@@ -6,11 +6,11 @@ import Image from "next/image";
 import { api } from "@convex/_generated/api";
 import { useMutation } from "convex/react";
 import { useOrganization } from "@clerk/nextjs";
-import { useAPIMutation } from "@/lib/hooks/use-api-mutation";
+import { useApiMutation } from "@/lib/hooks/use-api-mutation";
 import { toast } from "sonner";
 
 const EmptyBoard = () => {
-  const { mutate: createBoard, isPending } = useAPIMutation(api.board.create);
+  const { mutate: createBoard, isPending } = useApiMutation(api.board.create);
   const { organization } = useOrganization();
 
   const handleCreateBoard = async () => {

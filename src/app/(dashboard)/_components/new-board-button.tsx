@@ -1,4 +1,4 @@
-import { useAPIMutation } from "@/lib/hooks/use-api-mutation";
+import { useApiMutation } from "@/lib/hooks/use-api-mutation";
 import { cn } from "@/lib/utils";
 import { api } from "@convex/_generated/api";
 import { Id } from "@convex/_generated/dataModel";
@@ -12,7 +12,7 @@ type NewBoardButtonProps = {
 };
 
 const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
-  const { mutate: createBoard, isPending } = useAPIMutation(api.board.create);
+  const { mutate: createBoard, isPending } = useApiMutation(api.board.create);
 
   const handleCreateBoard = () => {
     createBoard({ orgId, title: "New Board from plus" })

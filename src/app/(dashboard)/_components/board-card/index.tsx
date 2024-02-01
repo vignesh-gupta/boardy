@@ -1,12 +1,13 @@
+import Actions from "@/components/actions";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useAuth } from "@clerk/nextjs";
 import { Id } from "@convex/_generated/dataModel";
+import { formatDistanceToNow } from "date-fns";
+import { MoreHorizontal, Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import Overlay from "./overlay";
-import { useAuth } from "@clerk/nextjs";
-import { formatDistanceToNow } from "date-fns";
 import CardFooter from "./card-footer";
-import { Skeleton } from "@/components/ui/skeleton";
+import Overlay from "./overlay";
 
 type BoardCardProps = {
   id: Id<"boards">;
@@ -30,15 +31,18 @@ const BoardCard = ({
   const { userId } = useAuth();
 
   const authorLabel = authorId === userId ? "You" : authorName;
-  const createdAtLabel = formatDistanceToNow(creationTime, {
-    addSuffix: true,
-  });
+  const createdAtLabel = formatDistanceToNow(creationTime, { addSuffix: true });
 
   return (
     <Link href={`/board/${id}`}>
       <div className="group aspect-[100/127] border rounded-lg justify-between overflow-hidden flex flex-col">
         <div className="relative flex-1 bg-amber-50">
           <Image src={imageURL} alt={title} fill className="object-fit p-3" />
+          <Actions id={id} title={title} side="right">
+            <button className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity px-3 py-2 z-50 outline-none">
+              <MoreHorizontal className="text-white opacity-75 hover:opacity-100 transition-opacity" />
+            </button>
+          </Actions>
           <Overlay />
         </div>
 
