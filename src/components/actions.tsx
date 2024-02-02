@@ -1,7 +1,7 @@
 "use client";
 
 import { useApiMutation } from "@/lib/hooks/use-api-mutation";
-import { api } from "@convex/_generated/api";
+import { api } from "@root/convex/_generated/api";
 import { DropdownMenuContentProps } from "@radix-ui/react-dropdown-menu";
 import { Link2, Pencil, Trash2 } from "lucide-react";
 import React from "react";

@@ -1,7 +1,7 @@
 import Actions from "@/components/actions";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@clerk/nextjs";
-import { Id } from "@convex/_generated/dataModel";
+import { Id } from "@root/convex/_generated/dataModel";
 import { formatDistanceToNow } from "date-fns";
 import { MoreHorizontal, Plus } from "lucide-react";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import Link from "next/link";
 import CardFooter from "./card-footer";
 import Overlay from "./overlay";
 import { useApiMutation } from "@/lib/hooks/use-api-mutation";
-import { api } from "@convex/_generated/api";
+import { api } from "@root/convex/_generated/api";
 import { toast } from "sonner";
 
 type BoardCardProps = {

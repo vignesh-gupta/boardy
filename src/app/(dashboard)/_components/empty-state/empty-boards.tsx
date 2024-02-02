@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { useApiMutation } from "@/lib/hooks/use-api-mutation";
 import { useOrganization } from "@clerk/nextjs";
-import { api } from "@convex/_generated/api";
+import { api } from "@root/convex/_generated/api";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 

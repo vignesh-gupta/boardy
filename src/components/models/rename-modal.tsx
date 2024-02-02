@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useApiMutation } from "@/lib/hooks/use-api-mutation";
-import { api } from "@convex/_generated/api";
+import { api } from "@root/convex/_generated/api";
 import { toast } from "sonner";
 
 const RenameModal = () => {
