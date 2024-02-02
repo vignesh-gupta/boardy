@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { api } from "@convex/_generated/api";
 import { Id } from "@convex/_generated/dataModel";
 import { Plus } from "lucide-react";
-import React from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 type NewBoardButtonProps = {
@@ -14,11 +14,13 @@ type NewBoardButtonProps = {
 const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
   const { mutate: createBoard, isPending } = useApiMutation(api.board.create);
 
+  const router = useRouter();
+
   const handleCreateBoard = () => {
     createBoard({ orgId, title: "New Board from plus" })
       .then((id) => {
         toast.success("Board created successfully");
-        // TODO: redirect to board page
+        router.push(`/board/${id}`);
       })
       .catch((err) => {
         console.error("[NEW_BOARD_BUTTON_ERROR]", err);
