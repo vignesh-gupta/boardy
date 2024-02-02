@@ -1,11 +1,11 @@
 "use client";
 
 import { api } from "@convex/_generated/api";
-import { useQuery } from "convex/react";
-import EmptyStates from "./empty-state";
-import BoardCard from "./board-card";
-import NewBoardButton from "./new-board-button";
 import { Id } from "@convex/_generated/dataModel";
+import { useQuery } from "convex/react";
+import BoardCard from "./board-card";
+import EmptyStates from "./empty-state";
+import NewBoardButton from "./new-board-button";
 
 type BoardListProps = {
   orgId: Id<"boards">;
@@ -16,7 +16,7 @@ type BoardListProps = {
 };
 
 const BoardList = ({ orgId, query }: BoardListProps) => {
-  const data = useQuery(api.boards.getBoards, { orgId });
+  const data = useQuery(api.boards.getBoards, { orgId, ...query });
 
   if (data === undefined)
     return (
