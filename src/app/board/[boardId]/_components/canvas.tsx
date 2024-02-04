@@ -26,6 +26,7 @@ import Info from "./info";
 import Participants from "./participants";
 import Toolbar from "./toolbar";
 import LayerPreview from "./layer-preview";
+import SelectionBox from "./selection-box";
 
 type CanvasProps = {
   boardId: string;
@@ -185,6 +186,8 @@ const Canvas = ({ boardId }: CanvasProps) => {
               selectedColor={layerIdsToColorSelection[layerId]}
             />
           ))}
+
+          <SelectionBox onResizeHandlePointerDown={() => {}} />
           <CursorPresence />
         </g>
       </svg>
