@@ -134,3 +134,10 @@ export type CanvasState =
   | {
       mode: CanvasMode.Pressing;
     };
+
+export type Layer =
+  | RectangleLayer
+  | EllipseLayer
+  | TextLayer
+  | NoteLayer
+  | PathLayer;
