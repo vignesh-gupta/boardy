@@ -1,3 +1,4 @@
+import { colorToCss } from "@/lib/utils";
 import { RectangleLayer } from "@/types/canvas";
 import React from "react";
 
@@ -28,8 +29,8 @@ const Rectangle = ({
       width={width}
       height={height}
       strokeWidth={1}
-      stroke="transparent"
-      fill="#000"
+      stroke={selectedColor || "transparent"}
+      fill={fill ? colorToCss(fill) : "#000"}
     />
   );
 };
