@@ -53,18 +53,24 @@ const Note = ({ id, layer, onPointerDown, selectionColor }: NoteProps) => {
       }}
       className="shadow-md drop-shadow-xl"
     >
-      <ContentEditable
-        html={value ?? "Text"}
-        onChange={handleContentChange}
+      <div
         className={cn(
-          "h-full w-full flex items-center justify-center text-center outline-none",
+          "h-full w-full flex flex-col flex-wrap items-center justify-center text-center p-3",
           font.className
         )}
         style={{
           color: fill ? getContrastingColor(fill) : "#000",
           fontSize: calculateFontSize(width, height),
         }}
-      />
+      >
+        <div
+          onChange={handleContentChange}
+          contentEditable
+          className="w-full max-h-full overflow-hidden outline-none"
+        >
+          {value ?? "Text"}
+        </div>
+      </div>
     </foreignObject>
   );
 };

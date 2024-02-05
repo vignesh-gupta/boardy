@@ -12,7 +12,7 @@ const font = Kalam({
 
 const calculateFontSize = (width: number, height: number) => {
   const maxFontSize = 96;
-  const scaleFactor = 0.5;
+  const scaleFactor = 0.3;
 
   const fontSizeBasedOnHeight = height * scaleFactor;
   const fontSizeBasedOnWidth = width * scaleFactor;
@@ -51,18 +51,24 @@ const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
         outline: selectionColor ? `1px solid ${selectionColor}` : "none",
       }}
     >
-      <ContentEditable
-        html={value ?? "Text"}
-        onChange={handleContentChange}
+      <div
         className={cn(
-          "h-full w-full flex items-center justify-center drop-shadow-md text-center outline-none",
+          "h-full w-full flex flex-col flex-wrap items-center justify-center text-center",
           font.className
         )}
         style={{
           color: fill ? colorToCss(fill) : "#000",
           fontSize: calculateFontSize(width, height),
         }}
-      />
+      >
+        <div
+          onChange={handleContentChange}
+          contentEditable
+          className="w-full max-h-full overflow-hidden outline-none"
+        >
+          {value ?? "Text"}
+        </div>
+      </div>
     </foreignObject>
   );
 };
