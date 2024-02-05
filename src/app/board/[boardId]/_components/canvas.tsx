@@ -32,6 +32,7 @@ import Info from "./info";
 import LayerPreview from "./layer-preview";
 import Participants from "./participants";
 import SelectionBox from "./selection-box";
+import SelectionTools from "./selection-tools";
 import Toolbar from "./toolbar";
 
 type CanvasProps = {
@@ -162,12 +163,10 @@ const Canvas = ({ boardId }: CanvasProps) => {
       e.preventDefault();
       const current = pointerEventToCanvasPoint(e, camera);
 
-      if (canvasState.mode === CanvasMode.Translating) {
+      if (canvasState.mode === CanvasMode.Translating)
         translateSelectedLayer(current);
-      } else if (canvasState.mode === CanvasMode.Resizing) {
-        console.log("resizing");
+      else if (canvasState.mode === CanvasMode.Resizing)
         resizeSelectedLayer(current);
-      }
 
       setMyPresence({ cursor: current });
     },
@@ -248,7 +247,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
   }, [selections]);
 
   return (
-    <main className="h-full w-full relative bg-neutral-100 touch-none">
+    <main className="relative w-full h-full bg-neutral-100 touch-none">
       <Info boardId={boardId} />
       <Participants />
       <Toolbar
@@ -259,7 +258,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
         undo={history.undo}
         redo={history.redo}
       />
-
+      <SelectionTools camera={camera} setLastUsedColor={setLastUsedColor} />
       <svg
         className="h-[100vh] w-[100vw]"
         onWheel={onWheel}

@@ -9,7 +9,7 @@ import {
 type HintProps = {
   label: string;
   children: React.ReactNode;
-  side: "left" | "right" | "top" | "bottom";
+  side?: "left" | "right" | "top" | "bottom";
   align?: "start" | "center" | "end";
   sideOffset?: number;
   alignOffset?: number;
