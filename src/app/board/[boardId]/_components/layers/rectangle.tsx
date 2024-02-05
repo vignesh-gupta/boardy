@@ -6,14 +6,14 @@ type RectangleProps = {
   id: string;
   onPointerDown: (e: React.PointerEvent, layerId: string) => void;
   layer: RectangleLayer;
-  selectedColor?: string;
+  selectionColor?: string;
 };
 
 const Rectangle = ({
   id,
   layer,
   onPointerDown,
-  selectedColor,
+  selectionColor,
 }: RectangleProps) => {
   const { x, y, fill, height, type, width } = layer;
 
@@ -29,7 +29,7 @@ const Rectangle = ({
       width={width}
       height={height}
       strokeWidth={1}
-      stroke={selectedColor || "transparent"}
+      stroke={selectionColor || "transparent"}
       fill={fill ? colorToCss(fill) : "#000"}
     />
   );
