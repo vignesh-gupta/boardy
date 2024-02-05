@@ -2,7 +2,16 @@ import { clsx, type ClassValue } from "clsx";
 import { PointerEvent } from "react";
 import { twMerge } from "tailwind-merge";
 import { COLORS } from "./constants";
-import { Camera, Color, Layer, Point, Side, XYWH } from "@/types/canvas";
+import {
+  Camera,
+  Color,
+  Layer,
+  LayerType,
+  PathLayer,
+  Point,
+  Side,
+  XYWH,
+} from "@/types/canvas";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -89,4 +98,64 @@ export function findIntersectingLayerWithRectangle(
 export function getContrastingColor(color: Color) {
   const brightness = (color.r * 299 + color.g * 587 + color.b * 114) / 1000;
   return brightness >= 182 ? "black" : "white";
+}
+
+export function penPointsToPathLayer(
+  points: number[][],
+  color: Color
+): PathLayer {
+  if (points.length < 2) {
+    throw new Error("Cannot transform points with less than 2 points");
+  }
+
+  let left = Number.POSITIVE_INFINITY;
+  let top = Number.POSITIVE_INFINITY;
+  let right = Number.NEGATIVE_INFINITY;
+  let bottom = Number.NEGATIVE_INFINITY;
+
+  for (const point of points) {
+    const [x, y] = point;
+
+    if (left > x) {
+      left = x;
+    }
+
+    if (top > y) {
+      top = y;
+    }
+
+    if (right < x) {
+      right = x;
+    }
+
+    if (bottom < y) {
+      bottom = y;
+    }
+  }
+
+  return {
+    type: LayerType.Path,
+    x: left,
+    y: top,
+    width: right - left,
+    height: bottom - top,
+    fill: color,
+    points: points.map(([x, y, pressure]) => [x - left, y - top, pressure]),
+  };
+}
+
+export function getSvgPathFromStroke(stroke: number[][]) {
+  if (!stroke.length) return "";
+
+  const d = stroke.reduce(
+    (acc, [x0, y0], i, arr) => {
+      const [x1, y1] = arr[(i + 1) % arr.length];
+      acc.push(x0, y0, (x0 + x1) / 2, (y0 + y1) / 2);
+      return acc;
+    },
+    ["M", ...stroke[0], "Q"]
+  );
+
+  d.push("Z");
+  return d.join(" ");
 }

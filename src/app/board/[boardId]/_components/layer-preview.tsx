@@ -7,6 +7,8 @@ import Ellipse from "./layers/ellipse";
 import Note from "./layers/note";
 import Rectangle from "./layers/rectangle";
 import Text from "./layers/text";
+import Path from "./layers/path";
+import { colorToCss } from "@/lib/utils";
 
 type LayerPreviewProps = {
   id: string;
@@ -21,6 +23,19 @@ const LayerPreview = memo(
     if (!layer) return null;
 
     switch (layer.type) {
+      case LayerType.Path:
+        return (
+          <Path
+            key={id}
+            points={layer.points}
+            onPointerDown={(e) => onLayerPointerDown(e, id)}
+            x={layer.x}
+            y={layer.y}
+            fill={layer.fill ? colorToCss(layer.fill) : "#000"}
+            stroke={selectionColor}
+          />
+        );
+
       case LayerType.Text:
         return (
           <Text
@@ -60,6 +75,7 @@ const LayerPreview = memo(
             selectionColor={selectionColor}
           />
         );
+
       default:
         console.warn("Layer type not supported");
         return null;

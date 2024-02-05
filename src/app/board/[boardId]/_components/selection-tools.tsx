@@ -35,7 +35,7 @@ const SelectionTools = memo(
       ({ storage }) => {
         const layerIds = storage.get("layerIds");
         const indices: number[] = [];
-        const layerArr = layerIds.toArray();
+        const layerArr = layerIds.toImmutable();
 
         for (let i = 0; i < layerArr.length; i++) {
           if (selection.includes(layerArr[i])) {
@@ -57,7 +57,7 @@ const SelectionTools = memo(
       ({ storage }) => {
         const layerIds = storage.get("layerIds");
         const indices: number[] = [];
-        const layerArr = layerIds.toArray();
+        const layerArr = layerIds.toImmutable();
 
         for (let i = 0; i < layerArr.length; i++) {
           if (selection.includes(layerArr[i])) {
