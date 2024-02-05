@@ -8,7 +8,7 @@ import EmptyStates from "./empty-state";
 import NewBoardButton from "./new-board-button";
 
 type BoardListProps = {
-  orgId: Id<"boards">;
+  orgId: string;
   query: {
     search?: string;
     favorites?: string;
@@ -25,7 +25,7 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
           {query.favorites ? "Favorite Boards" : "Team Boards"}
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 pb-10">
+        <div className="grid grid-cols-1 gap-5 pb-10 mt-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
           <NewBoardButton orgId={orgId} disabled />
           {Array(5)
             .fill(0)
@@ -44,7 +44,7 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
         {query.favorites ? "Favorite Boards" : "Team Boards"}
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 pb-10">
+      <div className="grid grid-cols-1 gap-5 pb-10 mt-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
         <NewBoardButton orgId={orgId} />
         {data.map((board) => (
           <BoardCard

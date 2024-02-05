@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 type NewBoardButtonProps = {
-  orgId: Id<"boards">;
+  orgId: string;
   disabled?: boolean;
 };
 
@@ -39,8 +39,8 @@ const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
       )}
     >
       <div />
-      <Plus className="h-12 w-12 text-white stroke-1" />
-      <p className="text-sm text-white font-light">New Board</p>
+      <Plus className="w-12 h-12 text-white stroke-1" />
+      <p className="text-sm font-light text-white">New Board</p>
     </button>
   );
 };

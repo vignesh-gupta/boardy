@@ -4,6 +4,8 @@ import "./globals.css";
 import ConvexClientProvider from "@/components/providers/convex-client-provider";
 import { Toaster } from "sonner";
 import ModelProvider from "@/components/providers/model-provider";
+import { Suspense } from "react";
+import Loading from "./board/[boardId]/_components/loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ConvexClientProvider>
-          {children}
-          <Toaster />
-          <ModelProvider />
-        </ConvexClientProvider>
+        <Suspense fallback={<Loading />}>
+          <ConvexClientProvider>
+            {children}
+            <Toaster />
+            <ModelProvider />
+          </ConvexClientProvider>
+        </Suspense>
       </body>
     </html>
   );
