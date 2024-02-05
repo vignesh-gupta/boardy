@@ -2,7 +2,7 @@ import { clsx, type ClassValue } from "clsx";
 import { PointerEvent } from "react";
 import { twMerge } from "tailwind-merge";
 import { COLORS } from "./constants";
-import { Camera, Color, Point, Side, XYWH } from "@/types/canvas";
+import { Camera, Color, Layer, Point, Side, XYWH } from "@/types/canvas";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -50,4 +50,38 @@ export function resizeBounds(bounds: XYWH, corner: Side, point: Point): XYWH {
   }
 
   return result;
+}
+
+export function findIntersectingLayerWithRectangle(
+  layerIds: readonly string[],
+  layers: ReadonlyMap<string, Layer>,
+  a: Point,
+  b: Point
+) {
+  const rect = {
+    x: Math.min(a.x, b.x),
+    y: Math.min(a.y, b.y),
+    width: Math.abs(a.x - b.x),
+    height: Math.abs(a.y - b.y),
+  };
+
+  const ids = [];
+
+  for (const layerId of layerIds) {
+    const layer = layers.get(layerId);
+    if (layer == null) continue;
+
+    const { x, y, height, width } = layer;
+
+    if (
+      x < rect.x + rect.width &&
+      y < rect.y + rect.height &&
+      x + width > rect.x &&
+      y + height > rect.y
+    ) {
+      ids.push(layerId);
+    }
+  }
+
+  return ids;
 }
