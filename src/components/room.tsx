@@ -1,10 +1,11 @@
 "use client";
 
+import React from "react";
+
 import { Layer } from "@/types/canvas";
 import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
 import { ClientSideSuspense } from "@liveblocks/react";
 import { RoomProvider } from "@root/liveblocks.config";
-import React from "react";
 
 type RoomProps = {
   children: React.ReactNode;

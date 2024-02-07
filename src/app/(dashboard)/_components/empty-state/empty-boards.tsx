@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-
-import { useApiMutation } from "@/lib/hooks/use-api-mutation";
 import { useOrganization } from "@clerk/nextjs";
-import { api } from "@root/convex/_generated/api";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+
+import { Button } from "@/components/ui/button";
+import { useApiMutation } from "@/lib/hooks/use-api-mutation";
+import { api } from "@root/convex/_generated/api";
 
 const EmptyBoard = () => {
   const { mutate: createBoard, isPending } = useApiMutation(api.board.create);

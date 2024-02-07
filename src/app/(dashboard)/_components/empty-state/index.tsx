@@ -1,4 +1,3 @@
-import React from "react";
 import EmptyBoard from "./empty-boards";
 import EmptyFavorites from "./empty-favorites";
 import EmptySearch from "./empty-search";

@@ -1,16 +1,17 @@
-import Actions from "@/components/actions";
-import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@clerk/nextjs";
-import { Id } from "@root/convex/_generated/dataModel";
 import { formatDistanceToNow } from "date-fns";
-import { MoreHorizontal, Plus } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import CardFooter from "./card-footer";
-import Overlay from "./overlay";
+import { toast } from "sonner";
+
+import Actions from "@/components/actions";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useApiMutation } from "@/lib/hooks/use-api-mutation";
 import { api } from "@root/convex/_generated/api";
-import { toast } from "sonner";
+import { Id } from "@root/convex/_generated/dataModel";
+import CardFooter from "./card-footer";
+import Overlay from "./overlay";
 
 type BoardCardProps = {
   id: Id<"boards">;

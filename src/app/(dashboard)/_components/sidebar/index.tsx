@@ -1,4 +1,3 @@
-import React from "react";
 import NewButton from "./new-button";
 import OrganizationList from "./org-list";
 

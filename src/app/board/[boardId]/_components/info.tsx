@@ -1,5 +1,11 @@
 "use client";
 
+import { useQuery } from "convex/react";
+import { Menu } from "lucide-react";
+import { Poppins } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
+
 import Actions from "@/components/actions";
 import Hint from "@/components/hint";
 import { Button } from "@/components/ui/button";
@@ -7,11 +13,6 @@ import { useRenameModal } from "@/lib/store/use-rename-modal";
 import { cn } from "@/lib/utils";
 import { api } from "@root/convex/_generated/api";
 import { Id } from "@root/convex/_generated/dataModel";
-import { useQuery } from "convex/react";
-import { Menu } from "lucide-react";
-import { Poppins } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
 
 const font = Poppins({
   subsets: ["latin"],

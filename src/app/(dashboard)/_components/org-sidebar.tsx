@@ -1,13 +1,14 @@
 "use client";
 
-import React from "react";
-import { Poppins } from "next/font/google";
-import Link from "next/link";
-import Image from "next/image";
 import { OrganizationSwitcher } from "@clerk/nextjs";
-import { Button } from "@/components/ui/button";
 import { LayoutDashboard, Star } from "lucide-react";
+import { Poppins } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const poppinsFont = Poppins({
   weight: ["600"],
@@ -19,7 +20,12 @@ const OrgSidebar = () => {
   const favorites = searchParams.get("favorites");
 
   return (
-    <div className="hidden lg:flex flex-col space-y-6 w-[206px] pl-5 pt-5">
+    <div
+      className={cn(
+        "hidden lg:flex flex-col space-y-6 w-[206px] pl-5 pt-5",
+        poppinsFont.className
+      )}
+    >
       <Link href="/">
         <div className="flex items-center gap-x-2">
           <Image src="logo.svg" alt="Logo" height={45} width={45} />

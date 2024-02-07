@@ -1,7 +1,6 @@
 import { useApiMutation } from "@/lib/hooks/use-api-mutation";
 import { cn } from "@/lib/utils";
 import { api } from "@root/convex/_generated/api";
-import { Id } from "@root/convex/_generated/dataModel";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";

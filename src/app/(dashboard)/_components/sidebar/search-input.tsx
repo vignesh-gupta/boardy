@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useEffect } from "react";
-import qs from "query-string";
-import { useRouter } from "next/navigation";
-import { useDebounce } from "usehooks-ts";
 import { Search } from "lucide-react";
+import { useRouter } from "next/navigation";
+import qs from "query-string";
+import React, { useEffect } from "react";
+import { useDebounce } from "usehooks-ts";
+
 import { Input } from "@/components/ui/input";
 
 const SearchInput = () => {

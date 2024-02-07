@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import ConvexClientProvider from "@/components/providers/convex-client-provider";
-import { Toaster } from "sonner";
-import ModelProvider from "@/components/providers/model-provider";
 import { Suspense } from "react";
+import { Toaster } from "sonner";
+
+import ConvexClientProvider from "@/components/providers/convex-client-provider";
+import ModelProvider from "@/components/providers/model-provider";
 import Loading from "./board/[boardId]/_components/loading";
+
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

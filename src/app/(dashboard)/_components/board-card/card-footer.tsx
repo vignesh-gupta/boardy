@@ -1,6 +1,7 @@
-import { cn } from "@/lib/utils";
 import { Star } from "lucide-react";
 import React from "react";
+
+import { cn } from "@/lib/utils";
 
 type CardFooterProps = {
   isFavorite: boolean;
