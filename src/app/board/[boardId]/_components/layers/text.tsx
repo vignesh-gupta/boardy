@@ -3,7 +3,6 @@ import { TextLayer } from "@/types/canvas";
 import { useMutation } from "@root/liveblocks.config";
 import { Kalam } from "next/font/google";
 import React from "react";
-import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
 
 const font = Kalam({
   subsets: ["latin"],
@@ -36,7 +35,11 @@ const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
     layer.get(id)?.set("value", newValue);
   }, []);
 
-  const handleContentChange = (e: ContentEditableEvent) => {
+  const handleContentChange = (
+    e: React.SyntheticEvent<any, Event> & {
+      target: { value: string };
+    }
+  ) => {
     updateValue(e.target.value);
   };
 
