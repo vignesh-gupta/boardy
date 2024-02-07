@@ -17,8 +17,8 @@ const SearchInput = () => {
       {
         url: "/",
         query: {
-          search: debouncedSearch,
-        },
+          search: debouncedSearch
+        }
       },
       { skipEmptyString: true, skipNull: true }
     );

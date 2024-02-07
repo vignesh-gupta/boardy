@@ -15,7 +15,7 @@ export const useRenameModal = create<IRenameModel>((set) => ({
   onOpen: (id, title) =>
     set({
       isOpen: true,
-      initialValues: { id, title },
+      initialValues: { id, title }
     }),
-  onClose: () => set({ isOpen: false, initialValues: defaultValue }),
+  onClose: () => set({ isOpen: false, initialValues: defaultValue })
 }));

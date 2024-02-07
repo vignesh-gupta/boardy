@@ -10,7 +10,7 @@ import {
   PathLayer,
   Point,
   Side,
-  XYWH,
+  XYWH
 } from "@/types/canvas";
 
 export function cn(...inputs: ClassValue[]) {
@@ -24,7 +24,7 @@ export function connectionIdToColor(connectionId: number): string {
 export function pointerEventToCanvasPoint(e: PointerEvent, camera: Camera) {
   return {
     x: Math.round(e.clientX) - camera.x,
-    y: Math.round(e.clientY) - camera.y,
+    y: Math.round(e.clientY) - camera.y
   };
 }
 
@@ -71,7 +71,7 @@ export function findIntersectingLayerWithRectangle(
     x: Math.min(a.x, b.x),
     y: Math.min(a.y, b.y),
     width: Math.abs(a.x - b.x),
-    height: Math.abs(a.y - b.y),
+    height: Math.abs(a.y - b.y)
   };
 
   const ids = [];
@@ -140,7 +140,7 @@ export function penPointsToPathLayer(
     width: right - left,
     height: bottom - top,
     fill: color,
-    points: points.map(([x, y, pressure]) => [x - left, y - top, pressure]),
+    points: points.map(([x, y, pressure]) => [x - left, y - top, pressure])
   };
 }
 

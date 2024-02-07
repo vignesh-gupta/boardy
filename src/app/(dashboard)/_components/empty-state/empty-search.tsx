@@ -9,9 +9,7 @@ const EmptySearch = () => {
         width={200}
         alt="Empty board"
       />
-      <h2 className="text-2xl mt-6 font-semibold ">
-        No results found!
-      </h2>
+      <h2 className="text-2xl mt-6 font-semibold ">No results found!</h2>
       <p className="text-sm mt-2 text-muted-foreground ">
         Try searching for something else
       </p>

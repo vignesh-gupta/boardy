@@ -11,7 +11,7 @@ const images = [
   "/placeholders/7.svg",
   "/placeholders/8.svg",
   "/placeholders/9.svg",
-  "/placeholders/10.svg",
+  "/placeholders/10.svg"
 ];
 
 export const get = query({
@@ -22,13 +22,13 @@ export const get = query({
       throw new Error("Board not found");
     }
     return board;
-  },
+  }
 });
 
 export const create = mutation({
   args: {
     title: v.string(),
-    orgId: v.string(),
+    orgId: v.string()
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -44,16 +44,16 @@ export const create = mutation({
       orgId: args.orgId,
       authorId: identity.subject,
       authorName: identity.name!,
-      imageUrl: randomImage,
+      imageUrl: randomImage
     });
 
     return boardId;
-  },
+  }
 });
 
 export const remove = mutation({
   args: {
-    id: v.id("boards"),
+    id: v.id("boards")
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -76,13 +76,13 @@ export const remove = mutation({
     }
 
     await ctx.db.delete(args.id);
-  },
+  }
 });
 
 export const update = mutation({
   args: {
     id: v.id("boards"),
-    title: v.string(),
+    title: v.string()
   },
   handler: async (ctx, args) => {
     const title = args.title.trim();
@@ -98,13 +98,13 @@ export const update = mutation({
     }
     const updatedBoard = await ctx.db.patch(args.id, { title });
     return updatedBoard;
-  },
+  }
 });
 
 export const favorite = mutation({
   args: {
     id: v.id("boards"),
-    orgId: v.string(),
+    orgId: v.string()
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -135,16 +135,16 @@ export const favorite = mutation({
     await ctx.db.insert("userFavorites", {
       userId,
       orgId: args.orgId,
-      boardId: args.id,
+      boardId: args.id
     });
 
     return board;
-  },
+  }
 });
 
 export const unfavorite = mutation({
   args: {
-    id: v.id("boards"),
+    id: v.id("boards")
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -175,5 +175,5 @@ export const unfavorite = mutation({
     await ctx.db.delete(existingFavorite._id);
 
     return board;
-  },
+  }
 });

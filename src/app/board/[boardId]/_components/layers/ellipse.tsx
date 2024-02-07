@@ -13,14 +13,14 @@ const Ellipse = ({
   id,
   layer,
   onPointerDown,
-  selectionColor,
+  selectionColor
 }: EllipseProps) => {
   return (
     <ellipse
       className="drop-shadow-md"
       onPointerDown={(e) => onPointerDown(e, id)}
       style={{
-        transform: `translate(${layer.x}px, ${layer.y}px)`,
+        transform: `translate(${layer.x}px, ${layer.y}px)`
       }}
       cx={layer.width / 2}
       cy={layer.height / 2}

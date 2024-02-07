@@ -10,7 +10,7 @@ import {
   findIntersectingLayerWithRectangle,
   penPointsToPathLayer,
   pointerEventToCanvasPoint,
-  resizeBounds,
+  resizeBounds
 } from "@/lib/utils";
 import {
   Camera,
@@ -20,7 +20,7 @@ import {
   LayerType,
   Point,
   Side,
-  XYWH,
+  XYWH
 } from "@/types/canvas";
 import {
   useCanRedo,
@@ -29,7 +29,7 @@ import {
   useMutation,
   useOthersMapped,
   useSelf,
-  useStorage,
+  useStorage
 } from "@root/liveblocks.config";
 import CursorPresence from "./cursor-presence";
 import Info from "./info";
@@ -52,13 +52,13 @@ const Canvas = ({ boardId }: CanvasProps) => {
   const pencilDraft = useSelf((self) => self.presence.pencilDraft);
 
   const [canvasState, setCanvasState] = useState<CanvasState>({
-    mode: CanvasMode.None,
+    mode: CanvasMode.None
   });
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
   const [lastUsedColor, setLastUsedColor] = useState<Color>({
     r: 0,
     g: 0,
-    b: 0,
+    b: 0
   });
 
   useDisableScrollBounce();
@@ -91,7 +91,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
         y: position.y,
         height: 100,
         width: 100,
-        fill: lastUsedColor,
+        fill: lastUsedColor
       });
 
       liveLayerIds.push(layerId);
@@ -109,7 +109,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
       setCanvasState({
         mode: CanvasMode.Resizing,
         initialBounds,
-        corner,
+        corner
       });
     },
     [history]
@@ -126,7 +126,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
       setCanvasState({
         mode: CanvasMode.SelectionNet,
         origin,
-        current,
+        current
       });
 
       const ids = findIntersectingLayerWithRectangle(
@@ -169,7 +169,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
           pencilDraft[0][0] === point.x &&
           pencilDraft[0][1] === point.y
             ? pencilDraft
-            : [...pencilDraft, [point.x, point.y, e.pressure]],
+            : [...pencilDraft, [point.x, point.y, e.pressure]]
       });
     },
     [canvasState.mode]
@@ -208,7 +208,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
     ({ setMyPresence }, point: Point, pressure: number) => {
       setMyPresence({
         pencilDraft: [[point.x, point.y, pressure]],
-        penColor: lastUsedColor,
+        penColor: lastUsedColor
       });
     },
     [lastUsedColor]
@@ -239,7 +239,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
 
       const offset = {
         x: point.x - canvasState.current.x,
-        y: point.y - canvasState.current.y,
+        y: point.y - canvasState.current.y
       };
 
       const liveLayers = storage.get("layers");
@@ -248,7 +248,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
         if (layer) {
           layer.update({
             x: layer.get("x") + offset.x,
-            y: layer.get("y") + offset.y,
+            y: layer.get("y") + offset.y
           });
         }
       }
@@ -287,7 +287,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
       continueDrawing,
       startMultipleSelection,
       translateSelectedLayer,
-      updatedSelectionNet,
+      updatedSelectionNet
     ]
   );
 
@@ -336,7 +336,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
       insertLayer,
       insertPath,
       setCanvasState,
-      unselectLayer,
+      unselectLayer
     ]
   );
 
@@ -419,7 +419,7 @@ const Canvas = ({ boardId }: CanvasProps) => {
       >
         <g
           style={{
-            transform: `translate(${camera.x}px, ${camera.y}px)`,
+            transform: `translate(${camera.x}px, ${camera.y}px)`
           }}
         >
           {layerIds.map((layerId) => (

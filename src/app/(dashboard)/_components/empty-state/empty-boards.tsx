@@ -19,7 +19,7 @@ const EmptyBoard = () => {
 
     createBoard({
       orgId: organization?.id,
-      title: "New Board",
+      title: "New Board"
     })
       .then((id) => {
         toast.success("Board created successfully");

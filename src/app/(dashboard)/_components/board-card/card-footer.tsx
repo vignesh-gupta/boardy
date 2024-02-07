@@ -17,7 +17,7 @@ const CardFooter = ({
   disabled,
   isFavorite,
   onClick,
-  title,
+  title
 }: CardFooterProps) => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.stopPropagation();

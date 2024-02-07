@@ -88,7 +88,7 @@ const SelectionTools = memo(
           transform: `translate(
             calc(${x}px - 50%),
             calc(${y - 16}px - 100%)
-            )`,
+            )`
         }}
       >
         <ColorPicker onChange={setFill} />

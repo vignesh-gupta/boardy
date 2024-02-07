@@ -5,14 +5,14 @@ export enum LayerType {
   Ellipse,
   Text,
   Note,
-  Path,
+  Path
 }
 
 export enum Side {
   Top = 1,
   Bottom = 2,
   Left = 4,
-  Right = 8,
+  Right = 8
 }
 
 export enum CanvasMode {
@@ -22,7 +22,7 @@ export enum CanvasMode {
   Translating,
   Inserting,
   Resizing,
-  Pencil,
+  Pencil
 }
 
 // Basic Types -----------------------------------

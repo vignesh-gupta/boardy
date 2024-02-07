@@ -38,7 +38,7 @@ export const ColorButton = ({ onClick, color }: ColorButtonProps) => {
       <div
         className="h-8 w-8 rounded-md border border-neutral-300"
         style={{
-          backgroundColor: colorToCss(color),
+          backgroundColor: colorToCss(color)
         }}
       />
     </button>

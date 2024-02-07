@@ -3,14 +3,14 @@ import {
   createClient,
   LiveList,
   LiveMap,
-  LiveObject,
+  LiveObject
 } from "@liveblocks/client";
 import { createRoomContext } from "@liveblocks/react";
 
 const client = createClient({
   // publicApiKey: "",
   authEndpoint: "/api/liveblocks-auth",
-  throttle: 16,
+  throttle: 16
 });
 
 // Presence represents the properties that exist on every user in the Room
@@ -94,8 +94,8 @@ export const {
     useEditComment,
     useDeleteComment,
     useAddReaction,
-    useRemoveReaction,
-  },
+    useRemoveReaction
+  }
 } = createRoomContext<Presence, Storage, UserMeta, RoomEvent, ThreadMetadata>(
   client,
   {
@@ -134,6 +134,6 @@ export const {
       // );
 
       return [];
-    },
+    }
   }
 );

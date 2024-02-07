@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         hostname: "img.clerk.com",
-        protocol: "https",
+        protocol: "https"
       }
     ]
   }

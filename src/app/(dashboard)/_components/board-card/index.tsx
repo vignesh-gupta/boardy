@@ -31,7 +31,7 @@ const BoardCard = ({
   imageURL,
   title,
   orgId,
-  isFavorite,
+  isFavorite
 }: BoardCardProps) => {
   const { userId } = useAuth();
 
@@ -46,7 +46,9 @@ const BoardCard = ({
 
   const toggleFavorite = () => {
     if (isFavorite)
-      removeFavorite({id}).catch(() => toast.error("Failed to unfavorite board"));
+      removeFavorite({ id }).catch(() =>
+        toast.error("Failed to unfavorite board")
+      );
     else
       addFavorite({ id, orgId }).catch((err) => {
         console.error(err);

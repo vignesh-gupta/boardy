@@ -4,7 +4,7 @@ import SearchInput from "./_components/sidebar/search-input";
 import {
   OrganizationSwitcher,
   UserButton,
-  useOrganization,
+  useOrganization
 } from "@clerk/nextjs";
 import React from "react";
 import InviteButton from "./_components/sidebar/invite-button";
@@ -27,7 +27,7 @@ const Navbar = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 width: "100%",
-                maxWidth: "367px",
+                maxWidth: "367px"
               },
               organizationSwitcherTrigger: {
                 padding: "6px",
@@ -35,9 +35,9 @@ const Navbar = () => {
                 borderRadius: "8px",
                 border: "1px solid #E5E7EB",
                 justifyContent: "space-between",
-                backgroundColor: "white",
-              },
-            },
+                backgroundColor: "white"
+              }
+            }
           }}
         />
       </div>

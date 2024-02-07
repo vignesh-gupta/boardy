@@ -24,7 +24,7 @@ const boundBox = (layers: Layer[]): XYWH | null => {
     x: left,
     y: top,
     width: right - left,
-    height: bottom - top,
+    height: bottom - top
   };
 };
 

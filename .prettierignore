@@ -1,0 +1,15 @@
+# Ignore artifacts:
+build
+coverage
+
+# Ignore all HTML / CSS / JS / JSON files:
+**/*.html
+**/*.css
+**/*.js
+
+# Ignore Shadcn UI components files:
+src/components/ui/**/*
+
+# Ignore convex generate files:
+convex/_generated/*
+convex/*.{js,json,md}

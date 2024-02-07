@@ -14,7 +14,7 @@ export const myQueryFunction = query({
   // Validators for arguments.
   args: {
     first: v.number(),
-    second: v.string(),
+    second: v.string()
   },
 
   // Function implementation.
@@ -29,7 +29,7 @@ export const myQueryFunction = query({
     // Write arbitrary JavaScript here: filter, aggregate, build derived data,
     // remove non-public properties, or create new objects.
     return documents;
-  },
+  }
 });
 ```
 
@@ -38,7 +38,7 @@ Using this query function in a React component looks like:
 ```ts
 const data = useQuery(api.functions.myQueryFunction, {
   first: 10,
-  second: "hello",
+  second: "hello"
 });
 ```
 
@@ -53,7 +53,7 @@ export const myMutationFunction = mutation({
   // Validators for arguments.
   args: {
     first: v.string(),
-    second: v.string(),
+    second: v.string()
   },
 
   // Function implementation.
@@ -66,7 +66,7 @@ export const myMutationFunction = mutation({
 
     // Optionally, return a value from your mutation.
     return await ctx.db.get(id);
-  },
+  }
 });
 ```
 

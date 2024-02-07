@@ -9,7 +9,7 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogTitle,
+  DialogTitle
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -33,7 +33,7 @@ const RenameModal = () => {
 
     updateBoard({
       id: initialValues.id,
-      title,
+      title
     })
       .then(() => {
         toast.success("Board renamed");

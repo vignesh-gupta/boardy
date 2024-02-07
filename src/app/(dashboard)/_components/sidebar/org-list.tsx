@@ -7,8 +7,8 @@ import OrganizationItem from "./org-item";
 const OrganizationList = () => {
   const { userMemberships } = useOrganizationList({
     userMemberships: {
-      infinite: true,
-    },
+      infinite: true
+    }
   });
 
   if (!userMemberships.data?.length) return null;

@@ -6,7 +6,7 @@ import {
   Square,
   StickyNote,
   Type,
-  Undo2,
+  Undo2
 } from "lucide-react";
 import ToolButton from "./tool-button";
 import { CanvasMode, CanvasState, LayerType } from "@/types/canvas";
@@ -26,7 +26,7 @@ const Toolbar = ({
   canvasState,
   redo,
   undo,
-  setCanvasState,
+  setCanvasState
 }: ToolbarProps) => {
   return (
     <div className="absolute top-1/2 -translate-y-1/2 left-2 flex flex-col gap-y-4">
@@ -48,7 +48,7 @@ const Toolbar = ({
           onClick={() =>
             setCanvasState({
               mode: CanvasMode.Inserting,
-              layerType: LayerType.Text,
+              layerType: LayerType.Text
             })
           }
           isActive={
@@ -62,7 +62,7 @@ const Toolbar = ({
           onClick={() =>
             setCanvasState({
               mode: CanvasMode.Inserting,
-              layerType: LayerType.Note,
+              layerType: LayerType.Note
             })
           }
           isActive={
@@ -77,7 +77,7 @@ const Toolbar = ({
           onClick={() =>
             setCanvasState({
               mode: CanvasMode.Inserting,
-              layerType: LayerType.Rectangle,
+              layerType: LayerType.Rectangle
             })
           }
           isActive={
@@ -91,7 +91,7 @@ const Toolbar = ({
           onClick={() =>
             setCanvasState({
               mode: CanvasMode.Inserting,
-              layerType: LayerType.Ellipse,
+              layerType: LayerType.Ellipse
             })
           }
           isActive={
@@ -105,7 +105,7 @@ const Toolbar = ({
           icon={Pencil}
           onClick={() =>
             setCanvasState({
-              mode: CanvasMode.Pencil,
+              mode: CanvasMode.Pencil
             })
           }
           isActive={canvasState.mode === CanvasMode.Pencil}

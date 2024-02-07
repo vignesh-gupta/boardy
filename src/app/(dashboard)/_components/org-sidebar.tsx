@@ -11,7 +11,7 @@ import { useSearchParams } from "next/navigation";
 
 const poppinsFont = Poppins({
   weight: ["600"],
-  subsets: ["latin"],
+  subsets: ["latin"]
 });
 
 const OrgSidebar = () => {
@@ -35,7 +35,7 @@ const OrgSidebar = () => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              width: "100%",
+              width: "100%"
             },
             organizationSwitcherTrigger: {
               padding: "6px",
@@ -43,9 +43,9 @@ const OrgSidebar = () => {
               borderRadius: "8px",
               border: "1px solid #E5E7EB",
               justifyContent: "space-between",
-              backgroundColor: "white",
-            },
-          },
+              backgroundColor: "white"
+            }
+          }
         }}
       />
 
@@ -69,7 +69,7 @@ const OrgSidebar = () => {
           <Link
             href={{
               pathname: "/",
-              query: { favorites: true },
+              query: { favorites: true }
             }}
           >
             <Star className="w-4 h-4 mr-2" /> Favorite Boards

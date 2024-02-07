@@ -9,9 +9,7 @@ const EmptyFavorites = () => {
         width={140}
         alt="Empty favorites"
       />
-      <h2 className="text-2xl mt-6 font-semibold ">
-        No favorite board!
-      </h2>
+      <h2 className="text-2xl mt-6 font-semibold ">No favorite board!</h2>
       <p className="text-sm mt-2 text-muted-foreground ">
         Try adding some boards to your favorites
       </p>

@@ -15,7 +15,7 @@ import Link from "next/link";
 
 const font = Poppins({
   subsets: ["latin"],
-  weight: ["600"],
+  weight: ["600"]
 });
 
 type InfoProps = {
@@ -24,7 +24,7 @@ type InfoProps = {
 
 const Info = ({ boardId }: InfoProps) => {
   const data = useQuery(api.board.get, {
-    id: boardId as Id<"boards">,
+    id: boardId as Id<"boards">
   });
 
   const { onOpen } = useRenameModal();

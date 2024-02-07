@@ -7,7 +7,7 @@ import {
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogTrigger,
+  AlertDialogTrigger
 } from "@/components/ui/alert-dialog";
 
 type ConfirmModalProps = {
@@ -23,7 +23,7 @@ const ConfirmModal = ({
   description,
   disabled,
   header,
-  onConfirm,
+  onConfirm
 }: ConfirmModalProps) => {
   const handleConfirm = () => {
     onConfirm();

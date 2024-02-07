@@ -7,7 +7,7 @@ import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
 
 const font = Kalam({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400"]
 });
 
 const calculateFontSize = (width: number, height: number) => {
@@ -49,7 +49,7 @@ const Note = ({ id, layer, onPointerDown, selectionColor }: NoteProps) => {
       onPointerDown={(e) => onPointerDown(e, id)}
       style={{
         outline: selectionColor ? `1px solid ${selectionColor}` : "none",
-        backgroundColor: fill ? colorToCss(fill) : "#000",
+        backgroundColor: fill ? colorToCss(fill) : "#000"
       }}
       className="shadow-md drop-shadow-xl"
     >
@@ -60,7 +60,7 @@ const Note = ({ id, layer, onPointerDown, selectionColor }: NoteProps) => {
         )}
         style={{
           color: fill ? getContrastingColor(fill) : "#000",
-          fontSize: calculateFontSize(width, height),
+          fontSize: calculateFontSize(width, height)
         }}
       >
         <div

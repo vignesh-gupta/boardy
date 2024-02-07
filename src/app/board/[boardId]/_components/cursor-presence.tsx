@@ -2,7 +2,7 @@
 
 import {
   useOthersConnectionIds,
-  useOthersMapped,
+  useOthersMapped
 } from "@root/liveblocks.config";
 import React, { memo } from "react";
 import Cursor from "./cursor";
@@ -39,7 +39,7 @@ const Drafts = () => {
   const others = useOthersMapped(
     (other) => ({
       pencilDraft: other.presence.pencilDraft,
-      penColor: other.presence.penColor,
+      penColor: other.presence.penColor
     }),
     shallow
   );

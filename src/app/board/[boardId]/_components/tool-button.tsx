@@ -17,7 +17,7 @@ const ToolButton = ({
   label,
   onClick,
   isActive,
-  isDisabled,
+  isDisabled
 }: ToolButtonProps) => {
   return (
     <Hint label={label} side="right" sideOffset={14}>

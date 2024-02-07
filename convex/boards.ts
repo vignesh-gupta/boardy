@@ -6,7 +6,7 @@ export const getBoards = query({
   args: {
     orgId: v.string(),
     search: v.optional(v.string()),
-    favorites: v.optional(v.string()),
+    favorites: v.optional(v.string())
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -28,7 +28,7 @@ export const getBoards = query({
 
       return boards.map((b) => ({
         ...b,
-        isFavorite: true,
+        isFavorite: true
       }));
     }
 
@@ -60,7 +60,7 @@ export const getBoards = query({
         .then((favorite) => {
           return {
             ...board,
-            isFavorite: !!favorite,
+            isFavorite: !!favorite
           };
         });
     });
@@ -70,5 +70,5 @@ export const getBoards = query({
     );
 
     return boardsWithFavoritesBoolean;
-  },
+  }
 });

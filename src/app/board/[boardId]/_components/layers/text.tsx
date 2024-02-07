@@ -7,7 +7,7 @@ import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
 
 const font = Kalam({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400"]
 });
 
 const calculateFontSize = (width: number, height: number) => {
@@ -48,7 +48,7 @@ const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
       width={width}
       onPointerDown={(e) => onPointerDown(e, id)}
       style={{
-        outline: selectionColor ? `1px solid ${selectionColor}` : "none",
+        outline: selectionColor ? `1px solid ${selectionColor}` : "none"
       }}
     >
       <div
@@ -58,7 +58,7 @@ const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
         )}
         style={{
           color: fill ? colorToCss(fill) : "#000",
-          fontSize: calculateFontSize(width, height),
+          fontSize: calculateFontSize(width, height)
         }}
       >
         <div

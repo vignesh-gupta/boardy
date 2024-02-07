@@ -3,7 +3,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
+  TooltipTrigger
 } from "./ui/tooltip";
 
 type HintProps = {
@@ -21,7 +21,7 @@ const Hint = ({
   label,
   side,
   alignOffset,
-  sideOffset,
+  sideOffset
 }: HintProps) => {
   return (
     <TooltipProvider>
