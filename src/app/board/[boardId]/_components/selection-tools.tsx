@@ -4,12 +4,12 @@ import { BringToFront, SendToBack, Trash2 } from "lucide-react";
 
 import Hint from "@/components/hint";
 import { Button } from "@/components/ui/button";
-import { useDeleteLayers } from "@/lib/hooks/use-delete-layers";
 import { useSelectionBounds } from "@/lib/hooks/use-selection-bound";
 import { Camera, Color } from "@/types/canvas";
 import { useMutation, useSelf } from "@root/liveblocks.config";
 import { memo } from "react";
 import ColorPicker from "./color-picker";
+import { useDeleteLayers } from "@/lib/hooks/use-delete-layers";
 
 type SelectionToolsProps = {
   camera: Camera;
