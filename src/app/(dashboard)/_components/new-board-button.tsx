@@ -1,8 +1,8 @@
 import { useApiMutation } from "@/lib/hooks/use-api-mutation";
+import { useRenameModal } from "@/lib/store/use-rename-modal";
 import { cn } from "@/lib/utils";
 import { api } from "@root/convex/_generated/api";
 import { Plus } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 type NewBoardButtonProps = {
@@ -12,14 +12,14 @@ type NewBoardButtonProps = {
 
 const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
   const { mutate: createBoard, isPending } = useApiMutation(api.board.create);
-
-  const router = useRouter();
+  const { onOpen } = useRenameModal();
 
   const handleCreateBoard = () => {
-    createBoard({ orgId, title: "New Board from plus" })
+    createBoard({ orgId, title: "Untitled" })
       .then((id) => {
         toast.success("Board created successfully");
-        router.push(`/board/${id}`);
+        onOpen(id, "Untitled");
+        // router.push(`/board/${id}`);
       })
       .catch((err) => {
         console.error("[NEW_BOARD_BUTTON_ERROR]", err);
