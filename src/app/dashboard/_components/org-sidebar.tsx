@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
+import { DASHBOARD_ROUTE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const poppinsFont = Poppins({
@@ -26,7 +27,7 @@ const OrgSidebar = () => {
         poppinsFont.className
       )}
     >
-      <Link href="/">
+      <Link href={DASHBOARD_ROUTE}>
         <div className="flex items-center gap-x-2">
           <Image src="logo.svg" alt="Logo" height={45} width={45} />
           <span>MiroClone</span>
@@ -62,7 +63,7 @@ const OrgSidebar = () => {
           size="lg"
           className="font-normal justify-start px-2 w-full"
         >
-          <Link href="/">
+          <Link href={DASHBOARD_ROUTE}>
             <LayoutDashboard className="w-4 h-4 mr-2" /> Team Boards
           </Link>
         </Button>
@@ -74,7 +75,7 @@ const OrgSidebar = () => {
         >
           <Link
             href={{
-              pathname: "/",
+              pathname: DASHBOARD_ROUTE,
               query: { favorites: true }
             }}
           >

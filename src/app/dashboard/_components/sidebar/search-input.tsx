@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import { useDebounce } from "usehooks-ts";
 
 import { Input } from "@/components/ui/input";
+import { DASHBOARD_ROUTE } from "@/lib/constants";
 
 const SearchInput = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const SearchInput = () => {
   useEffect(() => {
     const url = qs.stringifyUrl(
       {
-        url: "/",
+        url: DASHBOARD_ROUTE,
         query: {
           search: debouncedSearch
         }

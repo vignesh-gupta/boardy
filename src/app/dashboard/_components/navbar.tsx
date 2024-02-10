@@ -6,8 +6,8 @@ import {
   useOrganization
 } from "@clerk/nextjs";
 
-import InviteButton from "./_components/sidebar/invite-button";
-import SearchInput from "./_components/sidebar/search-input";
+import InviteButton from "./sidebar/invite-button";
+import SearchInput from "./sidebar/search-input";
 
 const Navbar = () => {
   const { organization } = useOrganization();
