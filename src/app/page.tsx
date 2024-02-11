@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import ScreenSize from "@/components/screen-size";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Navbar from "./_component/navbar";
 import { currentUser } from "@clerk/nextjs";
-import { BoxSelect, HeartHandshakeIcon, Route } from "lucide-react";
+import { BoxSelect, Github, HeartHandshakeIcon, Route } from "lucide-react";
 
 const HomePage = async () => {
   const user = await currentUser();
@@ -41,14 +41,21 @@ const HomePage = async () => {
             </p>
           </div>
           <div className="flex justify-evenly gap-x-6">
-            {user ? (
-              <Button asChild>
-                <Link href="/dashboard">Go to Dashboard &rarr;</Link>
-              </Button>
+            {!user ? (
+              <Link className={buttonVariants()} href="/dashboard">
+                Go to Dashboard &rarr;
+              </Link>
             ) : (
               <Button>Get Started</Button>
             )}
-            <Button variant="outline">Explore Features</Button>
+            <Link
+              href="https://github.com/vignesh-gupta/boardy/"
+              className={buttonVariants({
+                variant: "outline"
+              })}
+            >
+              Explore Features
+            </Link>
           </div>
         </ScreenSize>
         <ScreenSize className="border-t">
@@ -104,7 +111,7 @@ const HomePage = async () => {
           </div>
         </ScreenSize>
       </main>
-      <footer className="flex flex-col items-center w-full gap-2 px-4 py-6 border-t sm:flex-row shrink-0 md:px-6">
+      <footer className="flex flex-col items-center w-full gap-2 p-4 border-t sm:flex-row shrink-0 md:px-6">
         <p className="text-gray-600">
           Project By{" "}
           <Link
@@ -115,11 +122,12 @@ const HomePage = async () => {
           </Link>
         </p>
         <nav className="flex gap-4 sm:ml-auto sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
+          <Link
+            href="https://github.com/vignesh-gupta/boardy/"
+            target="_blank"
+            className="p-1 transition rounded-full hover:bg-black hover:text-white"
+          >
+            <Github size={20} />
           </Link>
         </nav>
       </footer>
