@@ -11,6 +11,8 @@ const ModelProvider = () => {
     return () => setIsMounted(false);
   }, []);
 
+  if (!isMounted) return null;
+
   return (
     <>
       <RenameModel />

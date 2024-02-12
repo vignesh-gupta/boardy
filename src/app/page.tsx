@@ -3,9 +3,9 @@ import Link from "next/link";
 
 import ScreenSize from "@/components/screen-size";
 import { Button, buttonVariants } from "@/components/ui/button";
-import Navbar from "./_component/navbar";
-import { currentUser } from "@clerk/nextjs";
+import { SignUpButton, currentUser } from "@clerk/nextjs";
 import { BoxSelect, Github, HeartHandshakeIcon, Route } from "lucide-react";
+import Navbar from "./_component/navbar";
 
 const HomePage = async () => {
   const user = await currentUser();
@@ -41,12 +41,14 @@ const HomePage = async () => {
             </p>
           </div>
           <div className="flex justify-evenly gap-x-6">
-            {!user ? (
+            {user ? (
               <Link className={buttonVariants()} href="/dashboard">
                 Go to Dashboard &rarr;
               </Link>
             ) : (
-              <Button>Get Started</Button>
+              <Button asChild>
+              <SignUpButton mode="modal">Get Started</SignUpButton>
+            </Button>
             )}
             <Link
               href="https://github.com/vignesh-gupta/boardy/"
@@ -54,7 +56,7 @@ const HomePage = async () => {
                 variant: "outline"
               })}
             >
-              Explore Features
+              <Github className="h-5 w-5 mr-2" /> Star on GitHub
             </Link>
           </div>
         </ScreenSize>
@@ -90,7 +92,7 @@ const HomePage = async () => {
                   <h3 className="text-xl font-bold">Innovate</h3>
                   <p className="text-gray-500 dark:text-gray-400">
                     Ignite innovation with our cutting-edge tools, inspiring
-                    creativity and propelling projects to new heights..
+                    creativity and propelling projects to new heights.
                   </p>
                 </div>
               </li>

@@ -5,7 +5,7 @@ import { Toaster } from "sonner";
 
 import ConvexClientProvider from "@/components/providers/convex-client-provider";
 import ModelProvider from "@/components/providers/model-provider";
-import Loading from "./board/[boardId]/_components/loading";
+import Loading from "@/components/auth/loading";
 
 import "./globals.css";
 
