@@ -61,7 +61,14 @@ const BoardCard = ({
     <Link href={`/board/${id}`}>
       <div className="group aspect-[100/127] border rounded-lg justify-between overflow-hidden flex flex-col">
         <div className="relative flex-1 bg-amber-50">
-          <Image src={imageURL} alt={title} fill className="p-3 object-fit" />
+          <Image
+            loading="lazy"
+            priority={false}
+            src={imageURL}
+            alt={title}
+            fill
+            className="p-3 object-fit"
+          />
           <Actions sideOffset={2} id={id} title={title} side="bottom">
             <button className="absolute z-50 px-3 py-2 transition-opacity outline-none opacity-0 top-1 right-1 group-hover:opacity-100">
               <MoreHorizontal className="text-white transition-opacity opacity-75 hover:opacity-100" />

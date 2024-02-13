@@ -35,6 +35,8 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
       </div>
     );
 
+  console.log("In BoardList");
+
   if (!data?.length) return <EmptyStates data={data} query={query} />;
 
   return (

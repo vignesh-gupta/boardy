@@ -30,6 +30,7 @@ const OrganizationItem = ({ id, imageUrl, name }: OrganizationItemProps) => {
           fill
           src={imageUrl}
           alt={name}
+          sizes="50px"
           onClick={onClick}
           className={cn(
             "rounded-full cursor-pointer opacity-75 hover:opacity-100 transition-all",
