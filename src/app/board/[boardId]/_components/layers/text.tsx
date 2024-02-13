@@ -1,8 +1,10 @@
+import { Kalam } from "next/font/google";
+import React from "react";
+import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
+
 import { cn, colorToCss } from "@/lib/utils";
 import { TextLayer } from "@/types/canvas";
 import { useMutation } from "@root/liveblocks.config";
-import { Kalam } from "next/font/google";
-import React from "react";
 
 const font = Kalam({
   subsets: ["latin"],
@@ -30,16 +32,16 @@ const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
   const { fill, height, width, x, y, value } = layer;
 
   const updateValue = useMutation(({ storage }, newValue: string) => {
+    debugger;
+
     const layer = storage.get("layers");
 
     layer.get(id)?.set("value", newValue);
   }, []);
 
-  const handleContentChange = (
-    e: React.SyntheticEvent<any, Event> & {
-      target: { value: string };
-    }
-  ) => {
+  const handleContentChange = (e: ContentEditableEvent) => {
+    console.log("New value", e.target.value);
+
     updateValue(e.target.value);
   };
 
@@ -56,7 +58,7 @@ const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
     >
       <div
         className={cn(
-          "h-full w-full flex flex-col flex-wrap items-center justify-center text-center",
+          "h-full w-full flex flex-col flex-wrap items-center justify-center text-center overflow-visible",
           font.className
         )}
         style={{
@@ -64,13 +66,18 @@ const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
           fontSize: calculateFontSize(width, height)
         }}
       >
-        <div
+        <ContentEditable
+          html={value ?? "Text"}
           onChange={handleContentChange}
-          contentEditable
-          className="w-full max-h-full overflow-hidden outline-none"
-        >
-          {value ?? "Text"}
-        </div>
+          className={cn(
+            "max-h-full max-w-full flex items-center text-wrap flex-wrap justify-center text-center drop-shadow-md outline-none overflow-visible",
+            font.className
+          )}
+          style={{
+            fontSize: calculateFontSize(width, height),
+            color: fill ? colorToCss(fill) : "#000"
+          }}
+        />
       </div>
     </foreignObject>
   );
