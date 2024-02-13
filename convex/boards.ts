@@ -13,9 +13,9 @@ export const getBoards = query({
     const identity = await ctx.auth.getUserIdentity();
 
     console.log("Identity", identity);
-    
+
     if (!identity) {
-    throw new Error("UNAUTHORIZED");
+      throw new Error("UNAUTHORIZED");
     }
 
     if (args.favorites) {

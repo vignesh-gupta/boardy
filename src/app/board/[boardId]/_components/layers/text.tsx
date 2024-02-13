@@ -40,8 +40,6 @@ const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
   }, []);
 
   const handleContentChange = (e: ContentEditableEvent) => {
-    console.log("New value", e.target.value);
-
     updateValue(e.target.value);
   };
 
