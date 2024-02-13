@@ -4,6 +4,9 @@ export default {
     {
       domain: "https://viable-javelin-98.clerk.accounts.dev",
       applicationID: "convex",
-    },
+    },{
+      domain: "https://clerk.vigneshgupta.tech",
+      applicationID: "convex",
+    }
   ]
 };
