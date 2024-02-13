@@ -10,11 +10,10 @@ export const getBoards = query({
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
-    // if (!identity) {
-    console.log("In getboards");
-
+    if (!identity) {
+    console.log("In getBoards");
     throw new Error("UNAUTHORIZED");
-    // }
+    }
 
     if (args.favorites) {
       const favoriteBoards = await ctx.db
