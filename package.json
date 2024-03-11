@@ -12,7 +12,7 @@
     "format:fix": "prettier --write --list-different ."
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.8",
+    "@clerk/nextjs": "^4.29.9",
     "@liveblocks/client": "^1.9.7",
     "@liveblocks/node": "^1.10.0",
     "@liveblocks/react": "^1.9.7",
