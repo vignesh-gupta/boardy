@@ -4,29 +4,29 @@ import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import qs from "query-string";
 import React, { useEffect } from "react";
-import { useDebounce } from "usehooks-ts";
 
 import { Input } from "@/components/ui/input";
 import { DASHBOARD_ROUTE } from "@/lib/constants";
+import { useDebounce } from "@/lib/hooks/use-debounce";
 
 const SearchInput = () => {
   const router = useRouter();
   const [search, setSearch] = React.useState("");
-  const debouncedSearch = useDebounce(search, 500);
+  const debouncedSearch = useDebounce(setSearch, 500);
 
   useEffect(() => {
     const url = qs.stringifyUrl(
       {
         url: DASHBOARD_ROUTE,
         query: {
-          search: debouncedSearch
+          search
         }
       },
       { skipEmptyString: true, skipNull: true }
     );
 
     router.push(url);
-  }, [debouncedSearch, router]);
+  }, [router, search]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
