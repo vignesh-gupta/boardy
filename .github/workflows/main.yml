@@ -19,7 +19,7 @@ jobs:
         uses: ./.github/actions/ci-setup
 
       - name: Lint Application
-        run: npm run lint 
+        run: npm run lint
 
   type-check:
     name: Types
@@ -44,8 +44,15 @@ jobs:
       - name: Setup Continuous Integration
         uses: ./.github/actions/ci-setup
 
-      - name: Copy Env File
-        run: cp .env.example .env
+      - name: "Create env file"
+        run: |
+          touch .env
+          echo CONVEX_DEPLOYMENT=${{ secrets.CONVEX_DEPLOYMENT }} >> .env
+          echo NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} >> .env 
+          echo NEXT_PUBLIC_CONVEX_URL=${{ secrets.NEXT_PUBLIC_CONVEX_URL }} >> .env
+          echo LIVEBLOCKS_SECRET_API_KEY=${{ secrets.LIVEBLOCKS_SECRET_API_KEY }} >> .env
+          echo CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }} >> .env
+          cat .env
 
       - name: Build Application
         run: npm run build
