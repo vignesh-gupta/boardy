@@ -56,3 +56,7 @@ jobs:
 
       - name: Build Application
         run: npm run build
+
+      - name: Remove env file
+        if: always()
+        run: rm .env
