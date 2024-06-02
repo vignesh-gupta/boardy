@@ -1,11 +1,12 @@
 "use client";
 
 import Loading from "@/components/auth/loading";
+import { env } from "@/env";
 import { ClerkProvider, useAuth } from "@clerk/nextjs";
 import {
   AuthLoading,
-  ConvexReactClient,
   Authenticated,
+  ConvexReactClient,
   Unauthenticated
 } from "convex/react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
@@ -14,7 +15,7 @@ type ConvexClientProviderProps = {
   children: React.ReactNode;
 };
 
-const convexURL = process.env.NEXT_PUBLIC_CONVEX_URL!;
+const convexURL = env.NEXT_PUBLIC_CONVEX_URL;
 
 const convex = new ConvexReactClient(convexURL);
 
