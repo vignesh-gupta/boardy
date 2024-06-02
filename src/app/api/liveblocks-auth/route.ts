@@ -1,12 +1,13 @@
+import { env } from "@/env";
 import { auth, currentUser } from "@clerk/nextjs";
 import { Liveblocks } from "@liveblocks/node";
 import { api } from "@root/convex/_generated/api";
 import { ConvexHttpClient } from "convex/browser";
 
-const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
+const convex = new ConvexHttpClient(env.NEXT_PUBLIC_CONVEX_URL);
 
 const liveblocks = new Liveblocks({
-  secret: process.env.LIVEBLOCKS_SECRET_API_KEY!
+  secret: env.LIVEBLOCKS_SECRET_API_KEY
 });
 
 export async function POST(request: Request) {

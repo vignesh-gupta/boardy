@@ -7,6 +7,7 @@ import { SignUpButton, currentUser } from "@clerk/nextjs";
 import { BoxSelect, Github, HeartHandshakeIcon, Route } from "lucide-react";
 import Navbar from "./_component/navbar";
 import { DASHBOARD_ROUTE } from "@/lib/constants";
+import { env } from "@/env";
 
 const HomePage = async () => {
   const user = await currentUser();
@@ -18,9 +19,7 @@ const HomePage = async () => {
         <ScreenSize>
           <Button asChild className="gap-2 rounded-full">
             <Link
-              href={
-                process.env.TWEET_LINK ?? "https://twitter.com/vigneshfixes/"
-              }
+              href={env.TWEET_LINK ?? "https://twitter.com/vigneshfixes/"}
               target="_blank"
             >
               <Image
