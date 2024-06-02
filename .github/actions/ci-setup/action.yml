@@ -20,13 +20,3 @@ runs:
       run: npm install
       shell: bash
 
-    - name: "Create env file"
-      shell: bash
-      run: |
-        touch .env
-        echo CONVEX_DEPLOYMENT=${{ secrets.CONVEX_DEPLOYMENT }} >> .env
-        echo NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} >> .env 
-        echo NEXT_PUBLIC_CONVEX_URL=${{ secrets.NEXT_PUBLIC_CONVEX_URL }} >> .env
-        echo LIVEBLOCKS_SECRET_API_KEY=${{ secrets.LIVEBLOCKS_SECRET_API_KEY }} >> .env
-        echo CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }} >> .env
-        cat .env
