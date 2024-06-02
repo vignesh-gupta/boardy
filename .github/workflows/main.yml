@@ -21,6 +21,10 @@ jobs:
       - name: Lint Application
         run: npm run lint
 
+      - name: Remove env file
+        if: always()
+        run: rm .env
+
   type-check:
     name: Types
     runs-on: ubuntu-20.04
@@ -34,6 +38,10 @@ jobs:
       - name: Check Application Types
         run: npm run type-check
 
+      - name: Remove env file
+        if: always()
+        run: rm .env
+
   build:
     name: Build
     runs-on: ubuntu-20.04
@@ -43,16 +51,6 @@ jobs:
 
       - name: Setup Continuous Integration
         uses: ./.github/actions/ci-setup
-
-      - name: "Create env file"
-        run: |
-          touch .env
-          echo CONVEX_DEPLOYMENT=${{ secrets.CONVEX_DEPLOYMENT }} >> .env
-          echo NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} >> .env 
-          echo NEXT_PUBLIC_CONVEX_URL=${{ secrets.NEXT_PUBLIC_CONVEX_URL }} >> .env
-          echo LIVEBLOCKS_SECRET_API_KEY=${{ secrets.LIVEBLOCKS_SECRET_API_KEY }} >> .env
-          echo CLERK_SECRET_KEY=${{ secrets.CLERK_SECRET_KEY }} >> .env
-          cat .env
 
       - name: Build Application
         run: npm run build
