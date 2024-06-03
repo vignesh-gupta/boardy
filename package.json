@@ -27,7 +27,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "convex": "^1.11.2",
-    "convex-helpers": "^0.1.24",
+    "convex-helpers": "^0.1.41",
     "date-fns": "^3.6.0",
     "jiti": "^1.21.0",
     "lucide-react": "^0.344.0",
