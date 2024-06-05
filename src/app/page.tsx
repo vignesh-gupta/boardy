@@ -3,11 +3,12 @@ import Link from "next/link";
 
 import ScreenSize from "@/components/screen-size";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { SignUpButton, currentUser } from "@clerk/nextjs";
+import { SignUpButton } from "@clerk/nextjs";
 import { BoxSelect, Github, HeartHandshakeIcon, Route } from "lucide-react";
 import Navbar from "./_component/navbar";
 import { DASHBOARD_ROUTE } from "@/lib/constants";
 import { env } from "@/env";
+import { currentUser } from "@clerk/nextjs/server";
 
 const HomePage = async () => {
   const user = await currentUser();
@@ -47,13 +48,7 @@ const HomePage = async () => {
               </Link>
             ) : (
               <Button asChild>
-                <SignUpButton
-                  afterSignUpUrl={DASHBOARD_ROUTE}
-                  afterSignInUrl={DASHBOARD_ROUTE}
-                  mode="modal"
-                >
-                  Get Started
-                </SignUpButton>
+                <SignUpButton mode="modal">Get Started</SignUpButton>
               </Button>
             )}
             <Link
