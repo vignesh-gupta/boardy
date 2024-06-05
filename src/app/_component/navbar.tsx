@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { DASHBOARD_ROUTE } from "@/lib/constants";
-import { SignInButton, UserButton, currentUser } from "@clerk/nextjs";
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -45,13 +45,7 @@ const Navbar = async () => {
             <UserButton />
           ) : (
             <Button asChild>
-              <SignInButton
-                afterSignUpUrl={DASHBOARD_ROUTE}
-                afterSignInUrl={DASHBOARD_ROUTE}
-                mode="modal"
-              >
-                Sign In
-              </SignInButton>
+              <SignInButton mode="modal">Sign In</SignInButton>
             </Button>
           )}
         </div>
